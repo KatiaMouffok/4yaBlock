@@ -7,6 +7,8 @@ type Block struct {
 	PreviousBlockHash []byte
 	MyBlockHash       []byte
 	AllData           []byte
+	Nonce             int64
+	Difficulty        int64
 }
 
 type Blockchain struct {

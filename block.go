@@ -19,11 +19,11 @@ func (block *Block) SetHash() {
 	block.MyBlockHash = hash[:]
 }
 
-func NewBlock(data string, prevBlockHash []byte) *Block {
-	block := &Block{time.Now().Unix(), prevBlockHash, []byte{}, []byte(data)}
+func NewBlock(data string, prevBlockHash []byte, difficulty int64) *Block {
+	block := &Block{time.Now().Unix(), prevBlockHash, []byte{}, []byte(data), 0, difficulty}
 	block.SetHash()
 	return block
 }
-func NewGenesisBlock() *Block {
-	return NewBlock("Genesis Block", []byte{})
+func NewGenesisBlock(difficulty int64) *Block {
+	return NewBlock("Genesis Block", []byte{}, difficulty)
 }
